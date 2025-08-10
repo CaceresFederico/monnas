@@ -1,0 +1,397 @@
+/* ======================== VARIABLES ======================== */
+/* Aquí se definen los colores y valores que se usan en todo el proyecto */
+:root {
+  --purple: rgb(56, 27, 73);
+  --purple-light: #4f2666;
+  --gray-regular: #555;
+  --black: #202429;
+  --white: #fff;
+  --black-transparent: rgba(0, 0, 0, 0.5);
+  --bg-light: #f4f4f4;
+}
+
+/* ======================== RESET GENERAL ======================== */
+/* Restablece los estilos por defecto del navegador para una base consistente */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  caret-color: transparent;
+}
+body {
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gray-regular);
+  font-family: "Lexend Deca", sans-serif;
+  background-color: var(--bg-light);
+}
+
+/* Estilos de base para tipografía y enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 0px;
+}
+.col ion-icon {
+  font-size: 1.8rem;
+  padding: 20px 6px;
+}
+.landing-number {
+  font-size: 1.8rem;
+}
+
+/* ======================== HEADER & NAVIGATION ======================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  background-color: var(--black-transparent);
+  backdrop-filter: blur(3px); /* Efecto de desenfoque en el fondo */
+  z-index: 999;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+#logo {
+  font-family: "Kapakana", cursive;
+  font-weight: bold;
+  font-size: 2.6em;
+  color: black;
+  border: 2px solid black;
+  background-color: var(--white);
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+#logo,
+.cart-icon,
+.btn-style {
+  transition: all 0.4s ease; /* Unifica la transición base */
+}
+
+#logo:hover,
+.cart-icon:hover,
+.btn-style:hover {
+  transform: scale(1.1);
+  transition: all 0.4s ease;
+}
+.nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-item {
+  color: var(--white);
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.6s ease;
+}
+.nav-item:hover {
+  background-color: var(--black);
+}
+.menu-icon {
+  display: none;
+}
+.menu-icon-style {
+  font-family: "Kapakana";
+  font-size: 3em;
+  padding: 10px;
+  color: var(--white);
+  cursor: pointer;
+}
+/* ======================== SHOP CART ======================== */
+/* Estilos para el icono del carrito de compras flotante */
+.shop-cart {
+  position: fixed;
+  bottom: 6rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.cart-icon {
+  background-color: white;
+  font-size: 1.6rem;
+  color: black;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid var(--black);
+}
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: var(--purple-light);
+  color: var(--white);
+  padding: 2px 8px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* ======================== MAIN CONTENT ======================== */
+main {
+  width: 100%;
+}
+
+/* SECCIÓN LANDING */
+.landing-page {
+  background-image: url(./src/landing-img.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  text-align: center;
+  padding: 20px;
+  background-attachment: fixed;
+}
+.landing-text {
+  text-align: left;
+  border-radius: 20px;
+  background-color: var(--black-transparent);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  justify-content: center;
+  margin-top: 10vh;
+  max-width: 80vw;
+}
+.landing-text-container {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  border-radius: 20px;
+}
+.landing-text h1 {
+  text-align: center;
+  font-weight: bold;
+  margin: 1rem 0;
+  font-size: 2rem;
+  padding: 8px;
+}
+.landing-page p {
+  /* font-size: 1rem; */
+  font-family: "Lexend Deca", sans-serif;
+  padding: 10px;
+  line-height: 1.8rem;
+}
+
+/* SECCIÓN MÁS VENDIDOS */
+.bestseller-container {
+  max-width: 80vw;
+  margin: 0 auto;
+  padding: 0;
+  margin: 4rem auto;
+}
+.bestseller-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.bestseller-head h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--black);
+}
+
+/* Grid de productos responsivo */
+.bestseller-product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-items: center;
+}
+.bestseller-product-item {
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  width: 80%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+/* Efecto hover: levanta la tarjeta y muestra la información */
+.bestseller-product-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* IMÁGENES DE LOS PRODUCTOS */
+/* Se enlazan las imágenes de fondo para cada tarjeta */
+.product-1 {
+  background-image: url(./src/product-img-1.jpeg);
+}
+.product-2 {
+  background-image: url(./src/product-img-2.jpeg);
+}
+.product-3 {
+  background-image: url(./src/product-img-3.jpeg);
+}
+.product-4 {
+  background-image: url(./src/product-img-4.jpeg);
+}
+
+.product-text {
+  width: 100%;
+  padding: 20px;
+  background-color: var(--black-transparent);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border-radius: 0 0 10px 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  font-size: 0.8rem;
+}
+.product-text .btn-style {
+  margin-top: 10px;
+}
+/* Al pasar el mouse, el texto del producto se hace visible */
+.bestseller-product-item:hover .product-text {
+  opacity: 1;
+}
+.product-text h4 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+.product-text .price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* BOTONES */
+.btn-style {
+  display: inline-block;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--white);
+  transition: background-color 0.3s ease;
+}
+.btn-purple {
+  background-color: var(--purple-light);
+}
+.btn-purple:hover {
+  background-color: var(--purple);
+}
+
+/* ======================== FOOTER ======================== */
+.footer {
+  width: 100%;
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 4rem;
+}
+.footer-social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.social-icon {
+  font-size: 2rem;
+  margin: 0 10px;
+  color: var(--white);
+  transition: transform 0.3s ease;
+}
+.social-icon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.footer-text {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ======================== MEDIA QUERIES ======================== */
+/* Reglas para adaptar el diseño a pantallas más pequeñas */
+@media (max-width: 767px) {
+  /* Navegación para móviles */
+  .navbar {
+    text-align: center;
+  }
+  .nav-links {
+    display: none;
+    opacity: 0;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0px;
+  }
+  .active {
+    display: flex;
+    opacity: 1;
+    margin: 0px auto;
+  }
+  .nav-item {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+  .menu-icon {
+    display: inline-block;
+    opacity: 1;
+    transition: all 0.8s ease;
+  }
+  .menu-icon:hover {
+    transform: scale(1.2);
+    transition: all 0.8s ease;
+  }
+  .landing-text-container {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .landing-text {
+    padding: 40px 0px;
+    margin-top: 15vh;
+  }
+  .landing-page p {
+    margin: 0px auto;
+    font-size: 0.9rem;
+    width: 90%;
+    padding: 20px;
+  }
+  .landing-page h1 {
+    font-size: 1.8rem;
+  }
+  .bestseller-head {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .bestseller-product-item {
+    width: 90%;
+  }
+}

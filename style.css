@@ -57,23 +57,23 @@ h4 {
   min-width: 100vw;
   background-color: var(--black-transparent);
   backdrop-filter: blur(3px); /* Efecto de desenfoque en el fondo */
-  z-index: 999;
+  z-index: 1000;
 }
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px 0px;
   max-width: 80vw;
   margin: 0 auto;
+  z-index: 100;
 }
 #logo {
   font-family: "Kapakana", cursive;
   font-weight: bold;
   font-size: 2.6em;
-  color: black;
-  border: 2px solid black;
-  background-color: var(--white);
+  color: white;
+  border: 2px solid white;
   padding: 5px 10px;
   border-radius: 20px;
 }
@@ -118,21 +118,16 @@ h4 {
 }
 /* ======================== SHOP CART ======================== */
 /* Estilos para el icono del carrito de compras flotante */
+.shop-bag {
+  width: 50px;
+  border-radius: 14px;
+  cursor: pointer;
+}
 .shop-cart {
   position: fixed;
   bottom: 6rem;
   right: 2rem;
   z-index: 1000;
-}
-
-.cart-icon {
-  background-color: white;
-  font-size: 1.6rem;
-  color: black;
-  cursor: pointer;
-  border-radius: 10px;
-  padding: 10px;
-  border: 2px solid var(--black);
 }
 .cart-count {
   position: absolute;
@@ -163,18 +158,16 @@ main {
   align-items: center;
   color: var(--white);
   text-align: center;
-  padding: 20px;
   background-attachment: fixed;
+  /* display: none; */
 }
 .landing-text {
-  text-align: left;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: var(--black-transparent);
   backdrop-filter: blur(2px);
   display: flex;
   flex-direction: column;
   min-height: 300px;
-  justify-content: center;
   margin-top: 10vh;
   max-width: 80vw;
 }
@@ -192,13 +185,15 @@ main {
   padding: 8px;
 }
 .landing-page p {
-  /* font-size: 1rem; */
   font-family: "Lexend Deca", sans-serif;
   padding: 10px;
   line-height: 1.8rem;
 }
 
 /* SECCIÓN MÁS VENDIDOS */
+/* .bestseller-page {
+  display: none;
+} */
 .bestseller-container {
   max-width: 80vw;
   margin: 0 auto;
@@ -218,12 +213,12 @@ main {
 }
 
 /* Grid de productos responsivo */
-.bestseller-product-list {
+.product-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   justify-items: center;
 }
-.bestseller-product-item {
+.product-item {
   border-radius: 10px;
   background-size: cover;
   background-position: center;
@@ -241,7 +236,7 @@ main {
 }
 
 /* Efecto hover: levanta la tarjeta y muestra la información */
-.bestseller-product-item:hover {
+.product-item:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -276,7 +271,7 @@ main {
   margin-top: 10px;
 }
 /* Al pasar el mouse, el texto del producto se hace visible */
-.bestseller-product-item:hover .product-text {
+.product-item:hover .product-text {
   opacity: 1;
 }
 .product-text h4 {
@@ -305,6 +300,29 @@ main {
 .btn-purple:hover {
   background-color: var(--purple);
 }
+/* ======================== CATALOG SECTION ======================== */
+.products-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--bg-light);
+  min-height: 100vh;
+  padding-top: 10vh;
+  text-align: center;
+}
+.products-page h2 {
+  font-size: 4.5rem;
+  margin-bottom: 1rem;
+  color: var(--black);
+  color: var(--purple-light);
+}
+.products-page h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--gray-regular);
+}
 
 /* ======================== FOOTER ======================== */
 .footer {
@@ -314,6 +332,7 @@ main {
   text-align: center;
   padding: 1rem 0;
   margin-top: 4rem;
+  display: none;
 }
 .footer-social {
   display: flex;
@@ -345,17 +364,23 @@ main {
     text-align: center;
   }
   .nav-links {
+    z-index: 100;
     display: none;
-    opacity: 0;
     margin-top: 10px;
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px 0px;
+    opacity: 0.5;
   }
   .active {
     display: flex;
+    align-items: center;
     opacity: 1;
-    margin: 0px auto;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--purple-light);
   }
   .nav-item {
     padding: 5px 10px;
@@ -382,7 +407,6 @@ main {
     margin: 0px auto;
     font-size: 0.9rem;
     width: 90%;
-    padding: 20px;
   }
   .landing-page h1 {
     font-size: 1.8rem;
@@ -391,7 +415,12 @@ main {
     flex-direction: column;
     gap: 15px;
   }
-  .bestseller-product-item {
+  .product-item {
     width: 90%;
   }
 }
+/* @media (min-width: 768px) {
+  .nav-links .active {
+    margin: 0px;
+  }
+} */

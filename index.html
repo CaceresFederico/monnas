@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monnas</title>
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
-    />
+    /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,7 +40,7 @@
 
     <!-- SHOP CART -->
     <div class="shop-cart">
-      <ion-icon name="bag-outline" class="cart-icon"></ion-icon>
+      <img src="./src/shopping-bag.svg" alt="shop-bag" class="shop-bag" />
       <span class="cart-count">9</span>
     </div>
 
@@ -53,20 +53,14 @@
             <div class="col col-md-4">
               <p class="landing-number">1</p>
               <p>Armá tu pedido con los productos que más te gusten.</p>
-              <ion-icon name="bag-handle"></ion-icon>
             </div>
             <div class="col col-md-4">
               <p class="landing-number">2</p>
               <p>A traves de Whatsapp se enviará el link de pago.</p>
-              <ion-icon name="logo-whatsapp"></ion-icon>
-              <ion-icon name="link"></ion-icon>
             </div>
             <div class="col col-md-4">
               <p class="landing-number">3</p>
               <p>Al confirmar el pago recibiras un id para gestionarlo.</p>
-              <ion-icon name="checkmark-done-outline"></ion-icon>
-              <ion-icon name="arrow-forward-outline"></ion-icon>
-              <ion-icon name="logo-whatsapp"></ion-icon>
             </div>
           </div>
         </div>
@@ -79,8 +73,8 @@
             <h3>Más vendidos</h3>
             <button type="button" class="btn-style btn-purple">Ver más</button>
           </div>
-          <div class="bestseller-product-list">
-            <div class="bestseller-product-item product-1">
+          <div class="product-list">
+            <div class="product-item product-1">
               <div class="product-text">
                 <h4>Blanca</h4>
                 <p class="price">$49.999</p>
@@ -91,7 +85,7 @@
                 </button>
               </div>
             </div>
-            <div class="bestseller-product-item product-2">
+            <div class="product-item product-2">
               <div class="product-text">
                 <h4>Pampa</h4>
                 <p class="price">$49.999</p>
@@ -102,7 +96,7 @@
                 </button>
               </div>
             </div>
-            <div class="bestseller-product-item product-3">
+            <div class="product-item product-3">
               <div class="product-text">
                 <h4>Cuadros Celestes</h4>
                 <p class="price">$49.999</p>
@@ -113,7 +107,7 @@
                 </button>
               </div>
             </div>
-            <div class="bestseller-product-item product-4">
+            <div class="product-item product-4">
               <div class="product-text">
                 <h4>Azul</h4>
                 <p class="price">$49.999</p>
@@ -127,17 +121,19 @@
           </div>
         </div>
       </section>
+
+      <!-- PRODUCTS PAGE -->
+      <section class="products-page">
+        <h2>Products page</h2>
+        <h3>In progress.</h3>
+      </section>
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-social">
-        <a href="#">
-          <ion-icon name="logo-instagram" class="social-icon"></ion-icon>
-        </a>
-        <a href="#">
-          <ion-icon name="logo-whatsapp" class="social-icon"></ion-icon>
-        </a>
+        <a href="#"> insta </a>
+        <a href="#"> wsp </a>
       </div>
       <p class="footer-text">
         Todos los derechos reservados &copy;Monnas 2025.
@@ -146,13 +142,5 @@
 
     <!-- SCRIPTS -->
     <script src="script.js"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
   </body>
 </html>

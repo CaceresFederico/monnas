@@ -3,7 +3,6 @@
 :root {
   --purple: rgb(56, 27, 73);
   --purple-light: #4f2666;
-  /* --gray-regular: #555; */
   --black: #202429;
   --white: #fff;
   --black-transparent: rgba(0, 0, 0, 0.5);
@@ -22,11 +21,10 @@ body {
   width: 100%;
   font-size: 1rem;
   line-height: 1.6;
-  /* color: var(--gray-regular); */
   font-family: "Lexend Deca", sans-serif;
   background-color: var(--bg-light);
+  scroll-behavior: smooth;
 }
-
 /* Estilos de base para tipografía y enlaces */
 a {
   text-decoration: none;
@@ -43,6 +41,11 @@ h4 {
 }
 .landing-number {
   font-size: 1.8rem;
+}
+h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--black);
 }
 
 /* ======================== HEADER & NAVIGATION ======================== */
@@ -78,7 +81,6 @@ h4 {
 .btn-style {
   transition: all 0.4s ease; /* Unifica la transición base */
 }
-
 .logo:hover,
 .cart-icon:hover,
 .btn-style:hover {
@@ -102,32 +104,26 @@ h4 {
 .nav-item:hover {
   background-color: var(--black);
 }
-.menu-icon {
-  display: none;
-}
-.menu-icon-style {
-  font-family: "Kapakana";
-  font-size: 3em;
-  padding: 10px;
-  color: var(--white);
-  cursor: pointer;
-}
+
 /* ======================== SHOP CART ======================== */
 /* Estilos para el icono del carrito de compras flotante */
 .shop-bag {
-  max-width: 34px;
-  cursor: pointer;
-  /* filter: drop-shadow(2px 2px 3px #333 ); */
+  width: 34px;
+}
+.shop-bag:hover{
+  scale: 1.2;
+  transition: all 0.4s ease;
 }
 .shop-cart {
   border: 1px solid black;
   position: fixed;
-  bottom: 6rem;
-  right: 2rem;
+  top: 80%;
+  right: 10vw;
   z-index: 1000;
   padding-left: 5px;
   padding-top: 5px;
   background-color: var(--bg-light);
+  cursor: pointer;
 }
 .cart-count {
   font-weight: bold;
@@ -135,6 +131,30 @@ h4 {
   font-size: 1.2rem;
   padding: 4px;
   background-color: var(--purple-light);
+}
+
+/* ======================== UTILS CLASS ======================== */
+.blur {
+  backdrop-filter: blur(2px);
+}
+.social {
+  position: fixed;
+  left: 10vw;
+  top: 80%;
+  display: flex;
+  flex-direction: column;
+  z-index: 200;
+  background-color: var(--bg-light);
+  border: 1px solid black;
+}
+.social-icon {
+  width: 34px;
+  margin: 10px;
+}
+.social-icon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 /* ======================== MAIN CONTENT ======================== */
@@ -155,23 +175,22 @@ main {
   color: var(--white);
   text-align: center;
   background-attachment: fixed;
-  /* display: none; */
 }
 .landing-text {
-  border-radius: 10px;
-  background-color: var(--black-transparent);
-  backdrop-filter: blur(2px);
   display: flex;
   flex-direction: column;
+  max-width: 80vw;
   min-height: 300px;
   margin-top: 10vh;
-  max-width: 80vw;
+  border-radius: 10px;
+  background-color: var(--black-transparent);
 }
 .landing-text-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  border-radius: 20px;
 }
 .landing-text h1 {
   text-align: center;
@@ -193,31 +212,35 @@ main {
   padding: 0;
   margin: 4rem auto;
 }
-.bestseller-head {
+.head {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4rem;
-}
-.bestseller-head h3 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--black);
+  width: 100%;
 }
 
-/* Grid de productos responsivo */
+/* Carousel de productos responsivo */
 .product-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  justify-items: center;
+  display: flex;
+  max-width: 80vw;
+  overflow-x: auto; /* Permite el scroll horizontal */
+  scroll-behavior: smooth; /* Desplazamiento suave al navegar */
+  padding: 20px 0; /* Espacio vertical dentro del slider */
+  gap: 60px; /* Espacio entre las tarjetas */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  /* Ocultar barra de desplazamiento para navegadores WebKit */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .product-item {
+  display: flex;
   border-radius: 10px;
   background-size: cover;
   background-position: center;
-  width: 80%;
   height: 400px;
-  display: flex;
   flex-direction: column;
   justify-content: flex-end;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -226,6 +249,7 @@ main {
   overflow: hidden;
   margin-bottom: 30px;
   cursor: pointer;
+  flex: 0 0 280px; /* No crecer, no encoger, base de 280px */
 }
 
 /* Efecto hover: levanta la tarjeta y muestra la información */
@@ -248,6 +272,12 @@ main {
 .product-4 {
   background-image: url(./src/product-img-4.jpeg);
 }
+.product-5 {
+  background-image: url(./src/product-img-5.jpeg);
+}
+.product-6 {
+  background-image: url(./src/product-img-6.jpeg);
+}
 
 .product-text {
   width: 100%;
@@ -259,6 +289,7 @@ main {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   font-size: 0.8rem;
+  z-index: 100;
 }
 .product-text .btn-style {
   margin-top: 10px;
@@ -293,30 +324,31 @@ main {
 .btn-purple:hover {
   background-color: var(--purple);
 }
-/* ======================== CATALOG SECTION ======================== */
+/* ======================== PRODUCTS PAGE ======================== */
 .products-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  /* padding: 2rem; */
   background-color: var(--bg-light);
   min-height: 100vh;
-  padding-top: 10vh;
+  /* padding-top: 10vh; */
   text-align: center;
+  overflow: hidden;
+  max-width: 80vw;
+  margin: 0 auto;
 }
 .products-page h2 {
-  font-size: 4.5rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
   color: var(--black);
   color: var(--purple-light);
 }
-.products-page h3 {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: var(--gray-regular);
-}
 
+.products-page .product-item {
+  background-color: red;
+}
 /* ======================== FOOTER ======================== */
 .footer {
   width: 100%;
@@ -325,24 +357,6 @@ main {
   text-align: center;
   padding: 1rem 0;
   margin-top: 4rem;
-  display: none;
-}
-.footer-social {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-.social-icon {
-  font-size: 2rem;
-  margin: 0 10px;
-  color: var(--white);
-  transition: transform 0.3s ease;
-}
-.social-icon:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
 }
 .footer-text {
   margin: 0;
@@ -374,27 +388,32 @@ main {
     padding: 5px 10px;
     font-size: 0.9rem;
   }
-  .landing-text-container {
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
   .landing-text {
     padding: 40px 0px;
-    margin-top: 15vh;
+    margin-top: 150px;
   }
   .landing-page p {
     margin: 0px auto;
     font-size: 0.9rem;
-    width: 90%;
   }
   .landing-page h1 {
     font-size: 1.8rem;
   }
-  .bestseller-head {
+  .head {
     flex-direction: column;
     gap: 15px;
   }
   .product-item {
     width: 90%;
+  }
+}
+@media (min-width: 768px) {
+  .landing-text {
+    margin: 0;
+    justify-content: space-evenly;
+  }
+  .landing-text-container {
+    display: flex;
+    flex-direction: row;
   }
 }

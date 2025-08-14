@@ -39,9 +39,6 @@ h3,
 h4 {
   margin-bottom: 0px;
 }
-.landing-number {
-  font-size: 1.8rem;
-}
 h3 {
   font-size: 2rem;
   font-weight: bold;
@@ -54,8 +51,8 @@ h3 {
   top: 0;
   left: 0;
   min-width: 100vw;
-  background-color: var(--black-transparent);
-  backdrop-filter: blur(3px); /* Efecto de desenfoque en el fondo */
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
   z-index: 1000;
 }
 .navbar {
@@ -75,11 +72,6 @@ h3 {
   border: 2px solid white;
   padding: 5px 10px;
   border-radius: 20px;
-}
-.logo,
-.cart-icon,
-.btn-style {
-  transition: all 0.4s ease; /* Unifica la transición base */
 }
 .logo:hover,
 .cart-icon:hover,
@@ -110,9 +102,9 @@ h3 {
 .shop-bag {
   width: 34px;
 }
-.shop-bag:hover{
+.shop-bag:hover {
   scale: 1.2;
-  transition: all 0.4s ease;
+  transition: all 0.2s ease;
 }
 .shop-cart {
   border: 1px solid black;
@@ -167,7 +159,7 @@ main {
   background-image: url(./src/landing-img.jpg);
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -207,26 +199,70 @@ main {
 
 /* SECCIÓN MÁS VENDIDOS */
 .bestseller-container {
-  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
   margin: 0 auto;
-  padding: 0;
-  margin: 4rem auto;
 }
 .head {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 4rem;
+  width: 80vw;
+}
+
+/* ======================== PRODUCTS PAGE ======================== */
+.product-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  margin: 0 auto;
+}
+.product-page h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--black);
+  color: var(--purple-light);
+}
+.product-text {
   width: 100%;
+  padding: 20px;
+  background-color: var(--black-transparent);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border-radius: 0 0 10px 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  font-size: 0.8rem;
+  z-index: 100;
+}
+.product-text .btn-style {
+  margin-top: 10px;
+}
+.product-text h4 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+.product-text .price {
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 /* Carousel de productos responsivo */
 .product-list {
   display: flex;
-  max-width: 80vw;
-  overflow-x: auto; /* Permite el scroll horizontal */
+  align-items: center;
+  width: max(240px, 80vw);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   scroll-behavior: smooth; /* Desplazamiento suave al navegar */
-  padding: 20px 0; /* Espacio vertical dentro del slider */
   gap: 60px; /* Espacio entre las tarjetas */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -240,7 +276,7 @@ main {
   border-radius: 10px;
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 340px;
   flex-direction: column;
   justify-content: flex-end;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -249,7 +285,8 @@ main {
   overflow: hidden;
   margin-bottom: 30px;
   cursor: pointer;
-  flex: 0 0 280px; /* No crecer, no encoger, base de 280px */
+  scroll-snap-align: center;
+  flex: 0 0 240px; /* No crecer, no encoger, base de 280px */
 }
 
 /* Efecto hover: levanta la tarjeta y muestra la información */
@@ -259,7 +296,6 @@ main {
 }
 
 /* IMÁGENES DE LOS PRODUCTOS */
-/* Se enlazan las imágenes de fondo para cada tarjeta */
 .product-1 {
   background-image: url(./src/product-img-1.jpeg);
 }
@@ -279,32 +315,9 @@ main {
   background-image: url(./src/product-img-6.jpeg);
 }
 
-.product-text {
-  width: 100%;
-  padding: 20px;
-  background-color: var(--black-transparent);
-  backdrop-filter: blur(10px);
-  color: var(--white);
-  border-radius: 0 0 10px 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  font-size: 0.8rem;
-  z-index: 100;
-}
-.product-text .btn-style {
-  margin-top: 10px;
-}
 /* Al pasar el mouse, el texto del producto se hace visible */
 .product-item:hover .product-text {
   opacity: 1;
-}
-.product-text h4 {
-  font-size: 1.5rem;
-  margin-top: 0;
-}
-.product-text .price {
-  font-size: 1.4rem;
-  font-weight: bold;
 }
 
 /* BOTONES */
@@ -316,7 +329,6 @@ main {
   cursor: pointer;
   font-size: 1rem;
   color: var(--white);
-  transition: background-color 0.3s ease;
 }
 .btn-purple {
   background-color: var(--purple-light);
@@ -324,31 +336,7 @@ main {
 .btn-purple:hover {
   background-color: var(--purple);
 }
-/* ======================== PRODUCTS PAGE ======================== */
-.products-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* padding: 2rem; */
-  background-color: var(--bg-light);
-  min-height: 100vh;
-  /* padding-top: 10vh; */
-  text-align: center;
-  overflow: hidden;
-  max-width: 80vw;
-  margin: 0 auto;
-}
-.products-page h2 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: var(--black);
-  color: var(--purple-light);
-}
 
-.products-page .product-item {
-  background-color: red;
-}
 /* ======================== FOOTER ======================== */
 .footer {
   width: 100%;
@@ -356,7 +344,6 @@ main {
   color: var(--white);
   text-align: center;
   padding: 1rem 0;
-  margin-top: 4rem;
 }
 .footer-text {
   margin: 0;
@@ -364,7 +351,7 @@ main {
 }
 
 /* ======================== MEDIA QUERIES ======================== */
-/* Reglas para adaptar el diseño a pantallas más pequeñas */
+/* <768px RESOLUTION SM MD */
 @media (max-width: 767px) {
   /* Navegación para móviles */
   .navbar {
@@ -386,7 +373,7 @@ main {
   }
   .nav-item {
     padding: 5px 10px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   .landing-text {
     padding: 40px 0px;
@@ -394,19 +381,18 @@ main {
   }
   .landing-page p {
     margin: 0px auto;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   .landing-page h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .head {
     flex-direction: column;
     gap: 15px;
   }
-  .product-item {
-    width: 90%;
-  }
 }
+
+/* 768px> RESOLUTION MD LG */
 @media (min-width: 768px) {
   .landing-text {
     margin: 0;
